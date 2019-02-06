@@ -41,21 +41,26 @@ rf <- train(class ~., data = train %>% select(population, class,
 pred <- predict(rf, newdata = test )
 confusionMatrix(pred, test$class)
 
-
+#Add the predictions from random forest to the train set
+train <- add_predictions(rf, train)
 
 
 
 #logistic regression
-model <- glm(class ~. , data = train %>% select(class, 
+model <- glm(pred ~. , data = train %>% select(pred, 
                                                 gill.color, stalk.color.above.ring, 
                                                 stalk.color.below.ring, 
                                                 population, gill.size, ring.number
                                                 ), family ="binomial")
 
+#express predictions as probabilities
 pred_glm <- plogis(predict(model, newdata = test))
 test$pred.prob <- pred_glm
 
+#minimize the chances to get edibles that are posionous
 test$pred_glm <- ifelse(test$pred.prob > 0.95, "p", "e") %>% as.factor()
+
+#results
 confusionMatrix(test$class, test$pred_glm)
 
 
