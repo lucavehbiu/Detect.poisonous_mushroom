@@ -4,6 +4,7 @@
 
 - **Goal** - Minimize false positives (poisonous mushrooms that are classified as edible)
 * Random forest used to get the most accurate results
-* Logistic regression (manually tuning highly probable posionous mushrooms to poisonous)
+* Logistic regression (manually tuning highly probable posionous mushrooms to poisonous) 
+  - To exclude the possibility of any false positive
 
 ### Best result out of three cities
