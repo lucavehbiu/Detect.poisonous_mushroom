@@ -7,4 +7,4 @@
 * Logistic regression (manually tuning highly probable posionous mushrooms to poisonous) 
   - To exclude the possibility of any false positive
 
-### Best result out of three cities
+### Best result out of four cities
